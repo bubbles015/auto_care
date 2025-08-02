@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - AutoCare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 60px;
+      background-color: #f4f4f4;
+    }
+
+    nav {
+      background-color: #333;
+      padding: 10px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      margin-right: 90px;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #007bff;
+    }
+
+    .login-button {
+      background-color: #0033ed;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .login-button:hover {
+      background-color: #0033ed;
+    }
+
+    .container {
+  max-width: 600px;
+  margin: 50px auto 20px; /* top margin 100px para malayo sa navbar */
+  padding: 20px 15px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+
+    h1 {
+      color: #111111;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    form input, form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+
+    form textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    form button {
+  display: block;
+  margin: 0 auto;
+  background-color: #0033ed;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  font-size: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #002acc;
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 30px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="images/autocare.jpg" alt="AutoCare Logo">
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="booking.html">Booking</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="login.html" class="login-button">Login</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h1>Contact Us</h1>
+  <form action="#" method="post">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" name="fullname" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+</body>
+</html>

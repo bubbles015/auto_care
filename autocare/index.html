@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 60px;
+      background-color: #ffffff;
+    }
+
+    nav {
+      background-color: #333;
+      padding: 10px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      margin-right: 100px;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #007bff;
+    }
+
+    /* Repair & Fixes Section */
+    .repair-fixes {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .repair-images {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .repair-images img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .repair-images img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .repair-fixes h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .dots {
+      margin-top: 10px;
+    }
+
+    .dots span {
+      height: 10px;
+      width: 10px;
+      margin: 0 7px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .dots span.active {
+      background-color: #333;
+    }
+
+    /* Suggestions Section */
+    .suggestions {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .suggestions h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 180px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 15px;
+      position: relative;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+    }
+
+    .card .discount {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #e0f0ff;
+      color: #007bff;
+      font-size: 12px;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .logout-btn {
+  background-color: #dc3545; /* red */
+  color: white !important;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+  color: #fff;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">
+    <img src="images/autocare.jpg" alt="AutoCare Logo" />
+  </div>
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="booking.html">Booking</a></li>
+  <li><a href="about.html">About Us</a></li>
+  <li><a href="contact.html">Contact Us</a></li>
+  <li><a href="login.html" class="logout-btn">Logout</a></li>
+</ul>
+</nav>
+
+<!-- Repair & Fixes Section with Dynamic Heading and Image -->
+<div class="repair-fixes">
+  <h2 id="repair-title">Repair & Fixes</h2>
+  <div class="repair-images">
+    <img src="images/gear.jpg" alt="Gear Repair Icon" class="active" />
+    <img src="images/green.jpg" alt="Auto Parts Icon" id="auto-parts-icon" />
+  </div>
+  <div class="dots">
+    <span class="active" data-index="0"></span>
+    <span data-index="1"></span>
+  </div>
+</div>
+
+<script>
+  // Add click event to Auto Parts icon
+  document.getElementById('auto-parts-icon').addEventListener('click', function () {
+    window.location.href = 'auto-parts.html';
+  });
+
+  // Dot image switching logic
+  const dots = document.querySelectorAll(".dots span");
+  const images = document.querySelectorAll(".repair-images img");
+  const title = document.getElementById("repair-title");
+
+  const titles = ["Repair & Fixes", "Auto Parts"];
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const index = parseInt(dot.getAttribute("data-index"));
+
+      dots.forEach(d => d.classList.remove("active"));
+      images.forEach(img => img.classList.remove("active"));
+
+      dot.classList.add("active");
+      images[index].classList.add("active");
+      title.textContent = titles[index];
+    });
+  });
+</script>
+
+<!-- Suggestions Section -->
+<div class="suggestions">
+  <h2>Suggestions</h2>
+  <div class="card-container">
+    <div class="card">
+      <span class="discount">-19%</span>
+      <img src="images/engine.jpg" alt="Engine Maintenance" />
+      <h3>Engine Maintenance</h3>
+    </div>
+    <div class="card">
+      <span class="discount">-50%</span>
+      <img src="images/brake.jpg" alt="Brake Disc Maintenance" />
+      <h3>Brake Disc Maintenance</h3>
+    </div>
+  </div>
+</div>
+<script>
+  const dots = document.querySelectorAll(".dots span");
+  const images = document.querySelectorAll(".repair-images img");
+  const title = document.getElementById("repair-title");
+
+  const titles = ["Repair & Fixes", "Auto Parts"];
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const index = parseInt(dot.getAttribute("data-index"));
+
+      dots.forEach(d => d.classList.remove("active"));
+      images.forEach(img => img.classList.remove("active"));
+
+      dot.classList.add("active");
+      images[index].classList.add("active");
+      title.textContent = titles[index];
+    });
+  });
+
+  function logout() {
+    // Add actual logout logic if needed
+    alert("You have been logged out.");
+    window.location.href = "login.html";
+  }
+
+  document.getElementById('auto-parts-icon').addEventListener('click', function () {
+    window.location.href = 'auto-parts.html';
+  });
+</script>
+</body>
+</html>
